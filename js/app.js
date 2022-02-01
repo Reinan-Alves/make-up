@@ -1,4 +1,6 @@
 const catalogo = document.querySelector(".catalog");
+const SelectFilterBrand = document.querySelector("#filter-brand");
+const SelectFilterType = document.querySelector("#filter-type");
 //chamada da função com que gera o catalogo de produtos
 catalogs();
 
@@ -19,8 +21,13 @@ async function catalogs() {
     let [product] = await Promise.all([
       fectchJson("http://makeup-api.herokuapp.com/api/v1/products.json/"),
     ]);
+    // all products in catalog
     let dados = productItem(product);
     catalogo.innerHTML = dados;
+    //filter-brand
+    createBrandOption(product);
+    //filter-type
+    createTypeOption(product);
   } catch (erro) {
     // o catch faz  o tratamento ou do erro
     showErro(erro);
@@ -92,4 +99,33 @@ function loadDetails(item) {
         </div>
       </div></section>`;
   return details;
+}
+
+//create options brands
+
+function createBrandOption(product) {
+  let optionBrand = product.map((item) => item.brand);
+  const uniqueBrand = [...new Set(optionBrand)];
+  const finalArray = uniqueBrand.map((item) => {
+    SelectFilterBrand.options[SelectFilterBrand.options.length] = new Option(
+      item,
+      item
+    );
+  });
+
+  return finalArray;
+}
+
+//create options type
+function createTypeOption(product) {
+  let optionType = product.map((item) => item.product_type);
+  let uniqueArray = [...new Set(optionType)];
+  let finalArray = uniqueArray.map((item) => {
+    SelectFilterType.options[SelectFilterType.options.length] = new Option(
+      item.product_type,
+      item.product_type
+    );
+  });
+
+  return finalArray;
 }

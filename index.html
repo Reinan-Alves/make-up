@@ -19,8 +19,8 @@
         </div>
         <div class="form-control">
           <label for="filter-brand">Marca:</label>
-          <select id="filter-brand">
-            <option value="">Todos</option>
+          <select id="filter-brand" onchange="javascript:mostraAlerta(this);">
+            <option value="1">Todos</option>
           </select>
         </div>
         <div class="form-control">
@@ -47,5 +47,6 @@
     </main>
     <script src="js/app.js"></script>
     <script src="js/filterName.js"></script>
+    <script src="js/filterBrand.js"></script>
   </body>
 </html>
