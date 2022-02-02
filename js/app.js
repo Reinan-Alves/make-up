@@ -95,7 +95,7 @@ function loadDetails(item) {
       </div><div class="details-row">
         <div>Product_type</div>
         <div class="details-bar">
-          <div class="details-bar-bg" style="width= 250">${item.product_type}</div>
+          <div class="product-type" "details-bar-bg" style="width= 250">${item.product_type}</div>
         </div>
       </div></section>`;
   return details;

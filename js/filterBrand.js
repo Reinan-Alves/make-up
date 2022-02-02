@@ -1,4 +1,4 @@
-function mostraAlerta() {
+function filterBrands() {
   let products = document.querySelectorAll(".product");
   let SelectFilterBrand = document.querySelector("#filter-brand");
   let optionValue = SelectFilterBrand.value; //funcionando
