@@ -119,11 +119,11 @@ function createBrandOption(product) {
 //create options type
 function createTypeOption(product) {
   let optionType = product.map((item) => item.product_type);
-  let uniqueArray = [...new Set(optionType)];
-  let finalArray = uniqueArray.map((item) => {
+  let uniqueType = [...new Set(optionType)];
+  let finalArray = uniqueType.map((item) => {
     SelectFilterType.options[SelectFilterType.options.length] = new Option(
-      item.product_type,
-      item.product_type
+      item,
+      item
     );
   });
 
